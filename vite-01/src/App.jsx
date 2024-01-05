@@ -1,9 +1,15 @@
+import { createElement } from "react"
+
 function App() {
+  
+  const reactElement = createElement(
+    'a',
+    {href: 'https://marcorossel.com/cv', target: '_blank'},
+    "marco's cv"
+  )
 
   return (
-    <>
-      <h2>firs change</h2>
-    </>
+    reactElement
   )
 }
 
