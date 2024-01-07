@@ -5,17 +5,31 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.input-div{
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 200px;
+  justify-content: space-between;
+  border: 1px solid pink;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.p-pass{
+  border: 1px solid lightgreen;
+  min-width: 100px;
+  max-width: 300px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.options{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.range-css{
+  display: flex;
+  flex-flow: column wrap;
 }
 
 @keyframes logo-spin {
