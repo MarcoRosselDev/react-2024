@@ -4,7 +4,14 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [range, setRange] = useState(5)
-  const [pass, setPass] = useState('pijsn')
+  const [pass, setPass] = useState('pijSnaVZ')
+
+  let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+  const generate_pass = (numb = false, charr = false) => {
+    console.log(numb, charr);
+  }
+
   return (
     <>
       <div className='input-div'>
@@ -13,7 +20,7 @@ function App() {
       </div>
       <div className='options'>
         <p>numbers</p>
-        <input type="checkbox" />
+        <input type="checkbox" onChange={() => generate_pass()}/>
         <p>characters</p>
         <input type="checkbox" />
       </div>
