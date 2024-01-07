@@ -19,6 +19,7 @@ main{
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   padding: 10px;
+  color: lightgoldenrodyellow;
 }
 
 .contenedor{
@@ -27,4 +28,5 @@ main{
   justify-content: space-between;
   gap: 5px;
   background-color: rgb(255, 255, 255);
+  color: lightcoral;
 }
