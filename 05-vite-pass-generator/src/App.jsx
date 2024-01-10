@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import './App.css'
 
 /* function App() {
   const [count, setCount] = useState(0)
   const [range, setRange] = useState(5)
   const [pass, setPass] = useState()
-
+  
   const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '1234567890';
   const caracteres = '!@#$%^&*()_+|}{":;[].,?><-='
-
+  
   const generate_pass = (numb = false, charr = false, range_f = range ) => {
     //console.log(numb, charr, range_f);
     console.log(letters.length);
@@ -51,6 +51,32 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState('');
+
+  const passwordRef = useRef(null);
+
+  const generatePassword = useCallback(() => {
+    let pass = '';
+    let str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    if (numberAllowed) str += '0123456789';
+    if (charAllowed) str += '!@#$%^&*()_+|}{":;[].,?><-=`';
+
+    for (let i = 1; i < length; i++) {
+      const char = Math.floor(Math.random() * str.length + 1)
+      pass += str.charAt(char);
+    }
+    setPassword(pass)
+  }, [length, numberAllowed, charAllowed])
+
+  const copyPasswordToClick = () => {
+    window.navigator.clipboard.writeText(password);
+    passwordRef.current.select();
+  }
+
+  //useEffect(()=>{}, []) sintax
+  // dentro del [], si algo cambia, se ejecuta la funcion collback
+  useEffect(()=>{ generatePassword()}, [length, numberAllowed, charAllowed])
+
   return (
     <>
       <div>
@@ -60,8 +86,9 @@ function App() {
         value={password}
         placeholder='password'
         readOnly
+        ref={passwordRef}
         />
-        <button>copy</button>
+        <button onClick={copyPasswordToClick}>copy</button>
       </div>
       <div>
         <input 
@@ -89,6 +116,16 @@ function App() {
         }}
         />
         <label htmlFor="number">Numbers</label>
+      </div>
+      <div>
+        <input 
+        type="checkbox"
+        defaultChecked={charAllowed}
+        onChange={() => {
+          setCharAllowed((prev) => !prev)
+        }}
+        />
+        <label htmlFor="number">Character</label>
       </div>
     </>
   )
