@@ -6,12 +6,19 @@ import {
 } from "react-router-dom";
 import './index.css';
 import Root from './routes/root';
+import ErrorPage from './error-page';
+import Contact from './routes/contact';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Root />,  // elemento raiz
+    errorElement: <ErrorPage /> // elemento ooops! error generico
   },
+  {
+    path: "contacts/:contactId",
+    element: <Contact />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
