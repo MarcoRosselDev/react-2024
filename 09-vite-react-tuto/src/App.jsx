@@ -1,9 +1,13 @@
-function Squere({value}) {
+import { useState } from "react";
+import './styles.css';
 
+function Squere() {
+
+  const [value, setValue] = useState(2);
+  
   function manejadorClick() {
-    console.log(`clickeaste el valor: ${value}`);
+    setValue()
   }
-
   return <button onClick={manejadorClick}>{value}</button>
 }
 
@@ -11,19 +15,19 @@ export default function board() {
   return (
     <>
       <div className="board-row">
-        <Squere value="1" />
-        <Squere value="2" />
-        <Squere value="3" />
+        <Squere />
+        <Squere />
+        <Squere />
       </div>
       <div className="board-row">
-        <Squere value="4" />
-        <Squere value="5" />
-        <Squere value="6" />
+        <Squere />
+        <Squere />
+        <Squere />
       </div>
       <div className="board-row">
-        <Squere value="7" />
-        <Squere value="8" />
-        <Squere value="9" />
+        <Squere />
+        <Squere />
+        <Squere />
       </div>
     </>
   )
