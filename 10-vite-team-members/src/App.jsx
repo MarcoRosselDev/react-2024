@@ -1,17 +1,25 @@
 import { useState } from 'react';
 import './App.css';
+import Main from './components/main';
 
 function App() {
 
-  const [contador, setContador] = useState(0)
+  const [mainState, setMainState] = useState('item-1')
 
   return (
-    <>
-      <h1>Hola mundo!</h1>
-      <button onClick={() => setContador(contador + 1)}>click</button>
-      <p>contador: {contador}</p>
-      <button onClick={() => setContador(0)}>reiniciar</button>
-    </>
+    <div className='body-div'>
+      <header>
+        <nav className='nav'>
+          <button onClick={() => setMainState('item-1')}>item 1</button>
+          <button onClick={() => setMainState('item-2')}>item 2</button>
+          <button onClick={() => setMainState('item-3')}>item 3</button>
+        </nav>
+      </header>
+      <Main main_state={mainState}/>
+      <footer>
+        <p>footer section</p>
+      </footer>
+    </div>
   )
 }
 

@@ -4,13 +4,41 @@
   box-sizing: border-box; 
 }
 
-body{
+.body-div{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 
   height: 100vh;
   font-family: sans-serif;
   color: white;
   background-color: black;
+}
+
+.nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  border-bottom: 1px solid pink;
+}
+
+button {
+  padding: 2px;
+  width: 100px;
+  background-color: lightblue;
+  border: 1px solid rgba(255, 255, 255, 0.436);
+  border-radius: 5px;
+}
+button:hover{
+  background-color: lightcoral;
 }
