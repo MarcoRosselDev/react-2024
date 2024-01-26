@@ -1,21 +1,21 @@
 import { useState } from 'react';
 import './App.css';
 import Main from './components/main';
+import Header from './components/header';
+import db from './db.js'
 
 function App() {
+  const [mainState, setMainState] = useState(db)
+  const [proyecto, setProyecto] = useState('proyecto-1')
 
-  const [mainState, setMainState] = useState('item-1')
+  function SetProyecto(target) {
+    setProyecto(target.value)
+  }
 
   return (
     <div className='body-div'>
-      <header>
-        <nav className='nav'>
-          <button onClick={() => setMainState('item-1')}>item 1</button>
-          <button onClick={() => setMainState('item-2')}>item 2</button>
-          <button onClick={() => setMainState('item-3')}>item 3</button>
-        </nav>
-      </header>
-      <Main main_state={mainState}/>
+      <Header proyecto={setProyecto}/>
+      <Main main_state={mainState} proyecto={proyecto}/>
       <footer>
         <p>footer section</p>
       </footer>
