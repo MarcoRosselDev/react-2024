@@ -1,26 +1,12 @@
-import { useState } from 'react';
 import './App.css';
-import Main from './components/main';
-import Header from './components/header';
-import db from './db.js'
 
-function App() {
-  const [mainState, setMainState] = useState(db)
-  const [proyecto, setProyecto] = useState('proyecto-1')
-
-  function SetProyecto(target) {
-    setProyecto(target.value)
-  }
-
+export default function App() {
   return (
-    <div className='body-div'>
-      <Header proyecto={setProyecto}/>
-      <Main main_state={mainState} proyecto={proyecto}/>
-      <footer>
-        <p>footer section</p>
-      </footer>
-    </div>
+    <main>
+      <button>Add new item</button>
+      <h1>item 1</h1>
+      <h1>item 2</h1>
+
+    </main>
   )
 }
-
-export default App
