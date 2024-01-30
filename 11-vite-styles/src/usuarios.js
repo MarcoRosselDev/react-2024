@@ -5,22 +5,22 @@ export default [
     },
     {
       favorite: false,
-      key: 1
+      key: 2
     },
     {
       favorite: true,
-      key: 1
+      key: 3
     },
     {
       favorite: false,
-      key: 1
+      key: 4
     },
     {
       favorite: true,
-      key: 1
+      key: 5
     },
     {
       favorite: true,
-      key: 1
+      key: 6
     },
   ]
