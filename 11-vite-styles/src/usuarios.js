@@ -1,10 +1,10 @@
 export default [
-  {
+    {
     favorite: false,
     key: 1
     },
     {
-      favorite: false,
+      favorite: true,
       key: 2
     },
     {
@@ -16,7 +16,7 @@ export default [
       key: 4
     },
     {
-      favorite: true,
+      favorite: false,
       key: 5
     },
     {
