@@ -1,7 +1,6 @@
-//import { useState } from "react"
-
 export default function Box(params) {
 
+  //console.log(params.favorite);
   const mode = {
     backgroundColor : params.favorite? 'blue': 'pink'
   }
