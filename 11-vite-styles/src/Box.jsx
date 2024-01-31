@@ -1,23 +1,16 @@
-import { useState } from "react"
+//import { useState } from "react"
 
 export default function Box(params) {
-  
-  const [dark, setDark] = useState(params.favorite)
-
-  function handelDark() {
-    setDark(prev => !prev)
-  }
 
   const mode = {
-    backgroundColor : dark? 'blue': 'pink'
+    backgroundColor : params.favorite? 'blue': 'pink'
   }
 
   return (
     <div 
-    className="box" 
-    key={params.key_params}
+    className="box"
     style={mode}
-    onClick={handelDark}
+    onClick={() => params.toggle(params.id_params)}
     ></div>
   )
 }

@@ -1,26 +1,26 @@
 export default [
     {
     favorite: false,
-    key: 1
+    id: 1
     },
     {
       favorite: true,
-      key: 2
+      id: 2
     },
     {
       favorite: true,
-      key: 3
+      id: 3
     },
     {
       favorite: false,
-      key: 4
+      id: 4
     },
     {
       favorite: false,
-      key: 5
+      id: 5
     },
     {
       favorite: true,
-      key: 6
+      id: 6
     },
   ]
