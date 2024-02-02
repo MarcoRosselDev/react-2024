@@ -15,8 +15,8 @@ function App() {
         [event.target.name]: event.target.value
       }
     })
-    console.log(inputs);
   }
+  console.log(inputs);
 
   return (
     <>
