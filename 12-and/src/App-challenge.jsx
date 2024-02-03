@@ -5,23 +5,30 @@ export default function App(params) {
   const [formState, setFormState] = useState({
     name:'',
     last_name: '',
+    password: '',
+    repeat_lastname: ''
   });
 
-  function setFormFunction(event) {
+  console.log(formState);
+  function setFormFunction(props) {
     
-    console.log(event.name);
+    //console.log(props.target);
 
-    setFormFunction(prev => {
+    setFormState(prev => {
       return {
         ...prev,
-        
+        [props.target.name]: props.target.value
       }
     })
   }
 
+  function submitForm(event) {
+    event.preventDefault();
+    // logica para enviar formState {} a algun servidor o base de datos
+  }
   return (
     <>
-      <form >
+      <form onSubmit={submitForm}>
 
         <label htmlFor="name">name</label>
         <input 
@@ -37,8 +44,24 @@ export default function App(params) {
         name="last_name"
         onChange={setFormFunction}
         />
+        <label htmlFor="password">password</label>
+        <input 
+        type="password" 
+        placeholder="*******"
+        name="password"
+        onChange={setFormFunction}
+        />
+        <label htmlFor="">repeat password</label>
+        <input 
+        type="password" 
+        placeholder="*******"
+        name="repeat_lastname"
+        onChange={setFormFunction}
+        />
+
+        <br />
+        <button>Send form</button>
       </form>
-      <h1>Hi</h1>
     </>
   )
 }
