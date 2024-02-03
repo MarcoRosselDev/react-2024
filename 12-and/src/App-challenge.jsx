@@ -6,7 +6,8 @@ export default function App(params) {
     name:'',
     last_name: '',
     password: '',
-    repeat_lastname: ''
+    repeat_password: '',
+    agree: false
   });
 
   console.log(formState);
@@ -14,16 +15,18 @@ export default function App(params) {
     
     //console.log(props.target);
 
+    const {name, value, type, checked} = props.target;
     setFormState(prev => {
       return {
         ...prev,
-        [props.target.name]: props.target.value
+        [name]: type === "checkbox" ? checked : value
       }
     })
   }
 
   function submitForm(event) {
     event.preventDefault();
+    console.log(formState);
     // logica para enviar formState {} a algun servidor o base de datos
   }
   return (
@@ -36,6 +39,7 @@ export default function App(params) {
         placeholder="name..."
         name="name"
         onChange={setFormFunction}
+        value={formState.name}
         />
         <label htmlFor="last_name">last name</label>
         <input 
@@ -43,6 +47,7 @@ export default function App(params) {
         placeholder="last name..."
         name="last_name"
         onChange={setFormFunction}
+        value={formState.last_name}
         />
         <label htmlFor="password">password</label>
         <input 
@@ -50,13 +55,23 @@ export default function App(params) {
         placeholder="*******"
         name="password"
         onChange={setFormFunction}
+        value={formState.password}
         />
         <label htmlFor="">repeat password</label>
         <input 
         type="password" 
         placeholder="*******"
-        name="repeat_lastname"
+        name="repeat_password"
         onChange={setFormFunction}
+        value={formState.repeat_password}
+        />
+
+        <label htmlFor="check">I am agree</label>
+        <input 
+        type="checkbox"
+        name="agree"
+        onChange={setFormFunction}
+        value={formState.agree}
         />
 
         <br />
