@@ -1,0 +1,19 @@
+.div-main{
+  border: 1px solid red;
+  height: 100vh;
+  background-color: black;
+  color: aliceblue;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
