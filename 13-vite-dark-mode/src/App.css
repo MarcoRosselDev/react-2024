@@ -1,8 +1,11 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+*{
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+#root {
+  max-width: 1280px;
   text-align: center;
 }
 
@@ -11,9 +14,14 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
+  width: 100vw;
   padding-right: 40px;
   padding-left: 40px;
+}
+
+.header-nav-dark{
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
 
 .main{
@@ -23,4 +31,9 @@
 
   justify-content: center;
   align-items: center;
+}
+
+.main-dark{
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }

@@ -8,13 +8,10 @@ import './App.css'
 */
 function App() {
   const [dark, setDark] = useState(false)
-
   function toggleDark() {
     setDark(prev => !prev)
   }
-
-  const div_style = dark? {backgroundColor: 'red'} : {backgroundColor: 'green'}
-
+  //const div_style = dark? {backgroundColor: 'red'} : {backgroundColor: 'green'}
   return (
     <>
       <Header 
@@ -22,8 +19,7 @@ function App() {
       darkValue={dark}
       />
       <div 
-      className='main'
-      style={div_style}
+      className={`main ${dark? 'main-dark' : ''}`}
       >
         <h1>hi</h1>
         <p>this is the body of this page</p>
