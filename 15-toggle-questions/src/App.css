@@ -3,3 +3,7 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.pregunta{
+  border: 1px solid blue;
+}
