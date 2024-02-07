@@ -6,20 +6,25 @@ function App() {
   const [note, setNote] = useState({
     titulo: '',
     contenido: '',
-    id: Math.random() * (Math.random() *10)
+    id: Math.round(Math.random() * (Math.random() *1000000))
   })
+  const [all, setAll] = useState([])
+
+  //console.log(note);
 
   function newNote(props) {
     const {value, name} = props.target;
     //const {value, name} = props.target.value;
     // podriamos agregar unos validadores previos a la actualizacion
     setNote(prev => {
-      console.log(prev);
       return {
+        ...prev,
         [name]: value
       }
     })
   }
+
+  console.log(note);
   /* const notass = note.map(item =>(
   <div>
     <p>{item.titulo}</p>
@@ -27,7 +32,16 @@ function App() {
   </div>)) */
   
   //id: Math.random() * Math.random()
-  console.log(note);
+
+  function saveNote(notee) {
+    setAll(prev =>{
+      return [
+        ...prev,
+        notee
+      ]
+    })
+  }
+
   return (
     <div className='div-main'>
        <form>
@@ -44,10 +58,18 @@ function App() {
         name='contenido'
         onChange={newNote}
         />
-        <button>crear</button>
+        <button onClick={(event) => {
+          event.preventDefault();
+          saveNote(note)
+        }}>crear</button>
       </form>
-      {/*       <div>{note}</div>
-      */}    
+      <div>
+        {all.map(item => (
+        <div className='margin-top' key={item.key}>
+          <p>titulo: {item.titulo}</p>
+          <p>contenido: {item.contenido}</p>
+        </div>))}  
+      </div>   
     </div>
   )
 }
