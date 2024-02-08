@@ -1,44 +1,41 @@
-import { useState } from 'react';
-import './App.css'
+import { useState } from 'react'
 import data from './data'
 
-function App() {
-  const [show, setShow] = useState(null)
-  const [btn, setBtn] = useState(false)
+export default function App(params) {
 
-  function mostrar(id) {
-    id === show? setShow(null) : setShow(id)
-  }
-  // disable, enable
-  function habilitar() {
-    setBtn(prev => !prev)
+  console.log(data);
+  const array = data.map(item => {
+    return {
+      id: item.id,
+      estado: false
+    }
+  })
+
+  const [plus, setPlus] = useState(array)
+
+  function setArray(id) {
+    console.log(id);
+    setPlus(prev => {
+      console.log(prev);
+      return [
+        ...prev
+      ]
+    })
   }
 
   return (
     <>
-      <p>preguntas frecuentes</p>
-      <button onClick={habilitar}>{btn? 'deshabilitar': 'habilitar'}</button>
-      <div className='contenedor'>
-        {
-          data.map(item => (
-            <div className='item' key={item.id}>
-              <p>{item.question}</p>
-              <p>{show === item.id? item.answer : null}</p>
-              <p onClick={() => mostrar(item.id)}>
-                {show === item.id? '-': '+'}
-              </p>
-            </div>
-          ))
-        }
-      </div>
+      {
+        data.map(item => {
+          //console.log(plus[item.id - 1].estado);
+          return (
+            <div key={item.id}>
+            <p>{item.question}</p>
+            <p>{plus[item.id -1].estado && item.answer}</p>
+            <p onClick={() => setArray(item.id)}>-</p>
+          </div>
+        )})
+      }
     </>
   )
 }
-
-export default App
-
-
-/* function hidden(elem) {
-  console.log(elem.target.id);
-  setMostrar(anterior => !anterior)
-} */
