@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import data from './data'
+import './app.css'
 
 export default function App(params) {
 
@@ -11,6 +12,16 @@ export default function App(params) {
   })
 
   const [plus, setPlus] = useState(array)
+  const [btn, setBtn] = useState(true)
+  const [justOne, setJustOne] = useState(null)
+
+  function one(id) {
+    setJustOne(id? id: null)
+  }
+
+  function setBtnFunction() {
+    setBtn(prev => !prev)
+  }
 
   function setArray(id) {
     setPlus(prev => {
@@ -21,6 +32,13 @@ export default function App(params) {
       return arr
     })
   }
+  const solo_uno = data.map(item => (
+    <div key={item.id} className='pregunta'>
+      <p>{item.question}</p>
+      <p>{justOne === item.id? item.answer: null}</p>
+      <p onClick={() => one(item.id)}>{justOne === item.id? '-': '+'}</p>
+    </div>
+  ))
 
   const multy_preguntas = data.map(item => {
     return (
@@ -33,9 +51,9 @@ export default function App(params) {
 
   return (
     <>
-      <p className='pregunta'>preguntas frecuentes</p>
-      <button>solo uno</button>
-      {multy_preguntas}
+      <p>preguntas frecuentes</p>
+      <button onClick={setBtnFunction}>{btn? 'solo uno': 'multiple'}</button>
+      {btn? multy_preguntas : solo_uno}
     </>
   )
 }
