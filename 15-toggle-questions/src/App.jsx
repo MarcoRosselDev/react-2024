@@ -3,7 +3,6 @@ import data from './data'
 
 export default function App(params) {
 
-  console.log(data);
   const array = data.map(item => {
     return {
       id: item.id,
@@ -14,28 +13,29 @@ export default function App(params) {
   const [plus, setPlus] = useState(array)
 
   function setArray(id) {
-    console.log(id);
     setPlus(prev => {
-      console.log(prev);
-      return [
-        ...prev
-      ]
+      let arr = []
+      prev.forEach(item => {
+        item.id === id? arr.push({id: id, estado: !item.estado}) : arr.push(item) 
+      })
+      return arr
     })
   }
 
+  const multy_preguntas = data.map(item => {
+    return (
+    <div key={item.id} className='pregunta'>
+      <p>{item.question}</p>
+      <p>{plus[item.id -1].estado && item.answer}</p>
+      <p onClick={() => setArray(item.id)}>{plus[item.id -1].estado? '-': '+'}</p>
+    </div>
+  )})
+
   return (
     <>
-      {
-        data.map(item => {
-          //console.log(plus[item.id - 1].estado);
-          return (
-            <div key={item.id}>
-            <p>{item.question}</p>
-            <p>{plus[item.id -1].estado && item.answer}</p>
-            <p onClick={() => setArray(item.id)}>-</p>
-          </div>
-        )})
-      }
+      <p className='pregunta'>preguntas frecuentes</p>
+      <button>solo uno</button>
+      {multy_preguntas}
     </>
   )
 }
