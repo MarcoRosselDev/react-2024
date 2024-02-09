@@ -2,7 +2,7 @@ import { useState } from 'react'
 import data from './data'
 import './app.css'
 
-export default function App(params) {
+export default function App() {
 
   const array = data.map(item => {
     return {
