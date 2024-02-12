@@ -7,10 +7,6 @@ function App() {
 
   const [arr, setArr] = useState([
     {
-      id: 0,
-      gold: false
-    },
-    {
       id: 1,
       gold: false
     },
@@ -26,43 +22,67 @@ function App() {
       id: 4,
       gold: false
     },
+    {
+      id: 5,
+      gold: false
+    },
   ])
 
-  function gold(params) {
-
-    function crearArray(num) {
-      let newArray = []
-      for (let i = 1; i < num; i++) {
-        newArray.push(i)
-      }
-      return newArray
+  function crearArray(num) {
+    let newArray = []
+    for (let i = 1; i < num; i++) {
+      newArray.push(i)
     }
+    return newArray
+  }
 
-    console.log(params.target.id);
-    //params.target.src = star_gold
-    setArr(prev => {
-      //const id_target = crearArray(params.target.id)
-      
-      //console.log(typeof(params.target.id));
-      //console.log(prev);
-      return prev
+  function gold(params) {
+    console.log(params.target.id);// this is an string, not a number
+    const this_id = Number(params.target.id)
+    const arr2 = crearArray(6)
+
+    const arr3 = []
+    //console.log(arr2);
+    arr2.map(item => {
+      console.log(item);
+      item <= this_id? arr3.push({id: item, gold: true}): arr3.push({id: item, gold: false})
+      //arr3.push()
     })
-    return params.target.src = star_gold;
+    //console.log(arr3);
+    setArr(arr3)
+
+    //return params.target.src = star_gold;
   }
   function black(params) {
-    params.target.src = star
+    const this_id = Number(params.target.id)
+    const arr2 = crearArray(6)
+
+    const arr3 = []
+    //console.log(arr2);
+    arr2.map(item => {
+      arr3.push({id: item, gold: false})
+      //arr3.push()
+    })
+    //console.log(arr3);
+    setArr(arr3)
+    
+    //params.target.src = star
   }
 
 
+  function establecer(params) {
+    console.log('establecer en el array');
+  }
 
   const imgs = arr.map(item => {
     return (
       <img 
-      src={star}
+      src={item.gold? star_gold: star}
       className='star' 
       alt="star logo" 
       onMouseOver={gold}
       onMouseLeave={black}
+      onClick={establecer}
       key={item.id}
       id={item.id}
       />
