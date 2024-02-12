@@ -27,7 +27,6 @@ function App() {
       gold: false
     },
   ])
-
   function crearArray(num) {
     let newArray = []
     for (let i = 1; i < num; i++) {
@@ -37,14 +36,14 @@ function App() {
   }
 
   function gold(params) {
-    console.log(params.target.id);// this is an string, not a number
+    //console.log(params.target.id);// this is an string, not a number
     const this_id = Number(params.target.id)
     const arr2 = crearArray(6)
 
     const arr3 = []
     //console.log(arr2);
     arr2.map(item => {
-      console.log(item);
+      //console.log(item);
       item <= this_id? arr3.push({id: item, gold: true}): arr3.push({id: item, gold: false})
       //arr3.push()
     })
@@ -54,7 +53,6 @@ function App() {
     //return params.target.src = star_gold;
   }
   function black(params) {
-    const this_id = Number(params.target.id)
     const arr2 = crearArray(6)
 
     const arr3 = []
@@ -65,13 +63,28 @@ function App() {
     })
     //console.log(arr3);
     setArr(arr3)
-    
+    console.log(params.target.DOMAttributes);
     //params.target.src = star
   }
 
 
   function establecer(params) {
-    console.log('establecer en el array');
+    //console.log('establecer en el array', params.target.id);
+    params.preventDefault();
+    const this_id = Number(params.target.id)
+    const arr2 = crearArray(6)
+
+    const arr3 = []
+    //console.log(arr2);
+    arr2.map(item => {
+      //console.log(item);
+      item <= this_id? arr3.push({id: item, gold: true}): arr3.push({id: item, gold: false})
+      //arr3.push()
+    })
+    //console.log(arr3);
+    console.log(params.target);
+    return setArr(arr3)
+
   }
 
   const imgs = arr.map(item => {
