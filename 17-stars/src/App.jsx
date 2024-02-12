@@ -41,11 +41,13 @@ function App() {
     console.log(params.target.id);
     //params.target.src = star_gold
     setArr(prev => {
-      const id_target = crearArray(params.target.id)
+      //const id_target = crearArray(params.target.id)
       
-      console.log(prev);
-
+      //console.log(typeof(params.target.id));
+      //console.log(prev);
+      return prev
     })
+    return params.target.src = star_gold;
   }
   function black(params) {
     params.target.src = star
