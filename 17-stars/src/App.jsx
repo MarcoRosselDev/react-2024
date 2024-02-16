@@ -4,7 +4,6 @@ import start_yell from './star-yell.svg';
 import { useState } from 'react';
 
 export default function App(params) {
-  //console.log(params);
   function createArray(num) {
     let newArray = []
     for (let i = 1; i < num + 1; i++) {
@@ -38,7 +37,6 @@ export default function App(params) {
 
   const starsImgs = starOver.map(item => {
     const id_img = Number(item.id) - 1
-    console.log(starClick[id_img].gold, '..aksjdf;');
     return (
       <img 
       className='star'
@@ -53,12 +51,9 @@ export default function App(params) {
     )
   })
 
-  //console.log(starClick);
   return (
     <div>
       {starsImgs}
-      {/* <img src={start} alt="empty star" />
-      <img src={start_yell} alt="yellow star" /> */}
     </div>
   )
 }
