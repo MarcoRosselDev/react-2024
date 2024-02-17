@@ -1,59 +1,39 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { createClient } from 'pexels';
-
-
-
 
 function App() {
   
-  /* async function f() {
-    const data = await fetch('https://api.pexels.com/v1/photos', {
-      method: 'GET',
-      mode: 'no-cors',
-      key: 'mvs1q3C1jBMczdloJxg2DdPO1OkgjpQJQU5wGVZp6HvxaMHw1mOn6KeS'
-    })
-    
-    data.then(info => info.json())
-    .then(data => console.log(data))
-  } */
-  
-  async function imgs() {
-    const client = await createClient('mvs1q3C1jBMczdloJxg2DdPO1OkgjpQJQU5wGVZp6HvxaMHw1mOn6KeS');
-    /* const data = await fetch('https://api.pexels.com/v1/', {
-      method: 'GET',
-      //key: 'mvs1q3C1jBMczdloJxg2DdPO1OkgjpQJQU5wGVZp6HvxaMHw1mOn6KeS',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'mvs1q3C1jBMczdloJxg2DdPO1OkgjpQJQU5wGVZp6HvxaMHw1mOn6KeS',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      //body: JSON.stringify(data)
-    })
-    return data */
-    const data = await fetch('https://api.pexels.com/v1/popular', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': client,
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    })
+  const [imgs_arr , setImgs] = useState([])
 
-    return client
+  async function fetch_data() {
+    const data = await fetch('https://api.pexels.com/v1/search?query=nature&per_page=3', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': 'mvs1q3C1jBMczdloJxg2DdPO1OkgjpQJQU5wGVZp6HvxaMHw1mOn6KeS',
+      },
+      //body: JSON.stringify(data), // data can be `string` or {object}!
+    })
+    return data
   }
 
   useEffect(() => {
-    const data = imgs();
-    data.then((i) => console.log(i))
-    //data.then(a => ())
+    const imgs = fetch_data();
+    imgs.then(data => data.json())
+    .then((i) => {
+      //console.log(i['photos'])
+      setImgs(i['photos'])
+    })
   }, [])
+
+  console.log(imgs_arr);
+  const elems = imgs_arr.map(item => (<img src={item['url']} key={item['id']}  className='imgss' alt="" />))
+  
+  console.log(elems);
 
   return (
     <>
-      <p>Hi</p>
+      {elems}
     </>
   )
 }
