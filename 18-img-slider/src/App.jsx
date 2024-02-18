@@ -3,62 +3,33 @@ import './App.css'
 
 function App() {
 
-  const [idPokemon, setIDPokemon] = useState(1);
-  const [urlPokemon, setUrlPokemon] = useState(null)
+  const [img, setImg] = useState('')
 
-  async function getPokemon(id) {
-    const pokemon = id;
-    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
+  async function getPhotos() {
+    const data = await fetch('https://picsum.photos/id/870/200/300?grayscale&blur=2', {
       method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
       headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/json",
       },
     })
 
-    return data.json()
-  }
-
-  async function getEvolutions(id) {
-    // id or name
-    console.log(id);
-    const evolutions = await fetch(`https://pokeapi.co/api/v2/evolution-trigger/${id}/`, {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    })
-
-    console.log(evolutions);
-    return evolutions.json()
+    return data
   }
 
   useEffect(() => {
-    const primer_pokemon =  getPokemon(idPokemon)
-    const evoluciones = getEvolutions(5);
-    evoluciones.then((data) => {
-      console.log(data, 'data from evolutions');
-    })
+    const variable = getPhotos();
 
-    primer_pokemon.then((pokemon) => {
-      setUrlPokemon(pokemon['sprites']['front_default'])
-    })
-    //console.log(primer_pokemon);
-  }, [idPokemon])
+    variable.then(info => {
+      setImg(info.url)
+    }).catch(err => console.log(err))
+    //console.log(variable);
+  }, [])
 
-  function nextPokemon() {
-    setIDPokemon(prev => prev + 1)
-  }
 
   return (
     <>
-      <img src={urlPokemon} alt="imagen del pokemon" className='imgss' />
-      <button onClick={nextPokemon}>siguiente pokemon</button>
+      <p>hi</p>
+      <img src={img} alt="random img" />
     </>
   )
 }
