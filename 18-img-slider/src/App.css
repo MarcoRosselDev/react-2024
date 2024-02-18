@@ -6,8 +6,13 @@
 }
 
 .imgss{
-  width: 400px;
-  height: 400px;
+  width: 833px;
+  height: 555px;
+}
+
+.contenedor{
+  border: 1px solid red;
+  display: flex;
 }
 
 .logo {
