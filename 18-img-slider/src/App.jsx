@@ -21,8 +21,29 @@ function App() {
     return data.json()
   }
 
+  async function getEvolutions(id) {
+    // id or name
+    console.log(id);
+    const evolutions = await fetch(`https://pokeapi.co/api/v2/evolution-trigger/${id}/`, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+
+    console.log(evolutions);
+    return evolutions.json()
+  }
+
   useEffect(() => {
     const primer_pokemon =  getPokemon(idPokemon)
+    const evoluciones = getEvolutions(5);
+    evoluciones.then((data) => {
+      console.log(data, 'data from evolutions');
+    })
 
     primer_pokemon.then((pokemon) => {
       setUrlPokemon(pokemon['sprites']['front_default'])
@@ -36,7 +57,6 @@ function App() {
 
   return (
     <>
-      <p>Hi</p>
       <img src={urlPokemon} alt="imagen del pokemon" className='imgss' />
       <button onClick={nextPokemon}>siguiente pokemon</button>
     </>
