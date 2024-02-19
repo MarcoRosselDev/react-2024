@@ -29,20 +29,11 @@ function App() {
   }, [])
 
   useEffect(() =>{
-    console.log('new count');
     arr.map(item => {
-      item.id == count? setImg(item['download_url']): null; 
+      item.id == count? setImg(item['download_url']): null;
     })
 
-  }, [count])
-
-  /* const elems = arr.map(item => {
-    // with: 2500
-    // height: 1667
-    return (<img src={item['download_url']} className='imgss' alt='random image' key={item.id} />)
-  }) */
-  //console.log(arr);
-
+  }, [count, arr])
 
   function nextImage() {
     setCount(prev => prev>= 19? 10: prev + 1)
@@ -51,13 +42,32 @@ function App() {
     setCount(prev => prev<=10? 19: prev - 1)
   }
 
-  console.log(count);
+  function mostrarImagen(params) {
+    console.log(params.target.id);
+    setCount(Number(params.target.id))
+  }
+
+  const bolitas = arr.map(item => {
+    return (<div
+      className={`bolita ${item.id == count? 'bolita-select' : null}`}
+      key={item.id} 
+      id={item.id} 
+      onClick={mostrarImagen}></div>)
+  })
 
   return (
     <div className='contenedor'>
-      <button onClick={prevImage}>prev image</button>
-      <img src={img} alt="imagen random" className='imgss' />
-      <button onClick={nextImage}>next image</button>
+      <div className='contenedor-img'>
+        <button onClick={prevImage}>prev image</button>
+        <img src={img} alt="imagen random" className='imgss' />
+        <button onClick={nextImage}>next image</button>
+      </div>
+      <div className='bolitas'>
+        {bolitas}
+        {/* <div className='bolita'></div>
+        <div className='bolita'></div>
+        <div className='bolita'></div> */}
+      </div>
     </div>
   )
 }

@@ -11,21 +11,46 @@
 }
 
 .contenedor{
-  border: 1px solid red;
-  display: flex;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.contenedor-img{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.bolitas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.bolita{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.bolita-select{
+  background-color: lightskyblue;
+}
+
+.bolita:hover{
+  background-color: lightskyblue;
+}
+
+button{
+  width: 100px;
+  height: 50px;
 }
 
 @keyframes logo-spin {
