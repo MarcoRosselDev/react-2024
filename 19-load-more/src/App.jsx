@@ -25,7 +25,6 @@ function App() {
     arr.then(data => {
       setArrData(data)
     })
-    .then(() => setPage(prev => prev + 1))
     //nextPage()
   },[])
 
@@ -33,7 +32,7 @@ function App() {
     setPage(prev => prev + 1)
   }
 
-  console.log(page);
+  console.log(page, 'por fuera');
 
   function setArray() {
 
@@ -42,14 +41,18 @@ function App() {
     asyncData.then(data => console.log(data))
   }
 
-  const imgs = arrData.map(item => (<img src={item["download_url"]} alt={`imagen ${item.id}`} key={item.id} id={item.id} className='imagenes' />
-  ))
+  
+
+  useEffect(() =>{
+    arrData.map(item => (<img src={item["download_url"]} alt={`imagen ${item.id}`} key={item.id} id={item.id} className='imagenes' />))
+  }, [arrData])
+
 
   
   return (
     <>
       <div>
-        {imgs}
+        
       </div>
       <button onClick={setArray}>cargar mas</button>
     </>
