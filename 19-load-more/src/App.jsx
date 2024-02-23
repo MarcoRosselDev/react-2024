@@ -10,7 +10,7 @@ function App() {
     const arr = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=10`, {
       method: 'GET',
       mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      cache: "force-cache", // *default, no-cache, reload, force-cache, only-if-cached
       //credentials: "same-origin", // include, *same-origin, omit
       headers: {
       "Content-Type": "application/json",
@@ -25,13 +25,33 @@ function App() {
     arr.then(data => {
       setArrData(data)
     })
+    .then(() => setPage(prev => prev + 1))
+    //nextPage()
   },[])
+
+  function nextPage() {
+    setPage(prev => prev + 1)
+  }
+
+  console.log(page);
+
+  function setArray() {
+
+    console.log(page);
+    const asyncData = get_array_de_fotos(page)
+    asyncData.then(data => console.log(data))
+  }
 
   const imgs = arrData.map(item => (<img src={item["download_url"]} alt={`imagen ${item.id}`} key={item.id} id={item.id} className='imagenes' />
   ))
+
+  
   return (
     <>
-      {imgs}
+      <div>
+        {imgs}
+      </div>
+      <button onClick={setArray}>cargar mas</button>
     </>
   )
 }
