@@ -25,36 +25,33 @@ function App() {
     arr.then(data => {
       setArrData(data)
     })
-    //nextPage()
   },[])
-
   function nextPage() {
     setPage(prev => prev + 1)
   }
 
-  console.log(page, 'por fuera');
+  useEffect(() => {
+    if (page > 1) {
+      const new_data = get_array_de_fotos(page)
+      new_data.then(data => {
+        //console.log(data, `data.. dentro del time`)
+        setArrData(prev => {
+          const lastArr = [...prev]
+          data.map(item => lastArr.push(item))
+          return lastArr
+        })
+      })
+    } else null
+    
+  }, [page])
 
-  function setArray() {
-
-    console.log(page);
-    const asyncData = get_array_de_fotos(page)
-    asyncData.then(data => console.log(data))
-  }
-
-  
-
-  useEffect(() =>{
-    arrData.map(item => (<img src={item["download_url"]} alt={`imagen ${item.id}`} key={item.id} id={item.id} className='imagenes' />))
-  }, [arrData])
-
-
-  
+  const imgs = arrData.map(item => (<img src={item["download_url"]} alt={`imagen ${item.id}`} key={item.id} id={item.id} className='imagenes' />))
   return (
     <>
       <div>
-        
+      {imgs}
       </div>
-      <button onClick={setArray}>cargar mas</button>
+      <button onClick={nextPage}>cargar mas</button>
     </>
   )
 }
