@@ -46,6 +46,9 @@ function App() {
   }, [page])
 
   const imgs = arrData.map(item => (<img src={item["download_url"]} alt={`imagen ${item.id}`} key={item.id} id={item.id} className='imagenes' />))
+  
+  // ahora podrimaoms cambiar el escuchador de eventos y aplicar un eje y
+  // para el efecto infinite scrolling
   return (
     <>
       <div>
