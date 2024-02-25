@@ -7,3 +7,15 @@
 #root{
   border: 1px solid pink;
 }
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid yellowgreen;
+}
+
+.header ul{
+  display: flex;
+  gap: 40px;
+}

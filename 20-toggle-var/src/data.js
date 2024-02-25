@@ -1,59 +1,96 @@
 const data = [
   {
-    pais: 'chile',
-    ciudades: {
-      concepcion: {
-        comunas: {
-          'san pedro de la paz': {
-            poblaciones: {
-              candelaria: {
-                habitantes: 123101,
-                alcalde: 'lushito faundes'
-              },
-              michaihue: {
-                habitantes: 133101,
-                alcalde: 'lushito faundes'
-              },
-              'boca sur': {
-                habitantes: 103111,
-                alcalde: 'lushito faundes'
-              }
-            }
-          },
-          'talcahuano' : {
-            poblaciones: {
-
-            }
-          },
-          'concepcion | nonguen': {
-            poblaciones: {
-
-            }
-          },
-          'coronel' : {
-            poblaciones: {
-
-            }
-          }
-        },
-        'habitantes total' : 1214040,
-        region: 'octava'
+    name: 'services',
+    url: 'https://www.computan.com/our-services',
+    children : [
+      {
+        name: 'hubspot front-end development',
+        url: 'https://www.computan.com/hubspot-development'
       },
-      temuco:{
-        comunas: {
-          'padre las casas':{
-            habitantes: 120441
-          }
-        }
+      {
+        name: 'hubspot integrations',
+        url: 'https://www.computan.com/hubspot-integration'
       },
-      santiago: {
-        comunas: {
-          'puente alto' : {
-            habitantes: 1231245
+      { name: 'wordpress development',
+        url: 'https://www.computan.com/wordpress-development'
+      },
+      {
+        name: 'shopify development',
+        url: 'https://www.computan.com/shopify-development'
+      },
+      {
+        name: 'custom app and games development',
+        url: 'https://www.computan.com/custom-app-and-games-development',
+        children: [
+          {
+            name: 'rescue driver',
+            url: 'https://www.computan.com/rescue-driver'
+          },
+          {
+            name: 'dubai virtual tour',
+            url: 'https://www.computan.com/dubai-virtual-tour'
+          },
+          {
+            name: 'code cleaner',
+            url: 'https://www.computan.com/code-cleaner'
+          },
+          {
+            name: 'bread master',
+            url: 'https://www.computan.com/bread-master'
           }
-        }
+        ]
+      },
+      {
+        name: 'ecommerce',
+        url: 'https://www.computan.com/ecommerce-implementation'
+      }
+    ]
+  },
+  {
+    name: 'about',
+    url: 'https://www.computan.com/our-story',
+    children:{
+      'our story': {
+        url: 'https://www.computan.com/our-story'
+      },
+      'our team': {
+        url: 'https://www.computan.com/team'
       }
     }
+  },
+  {
+    name: 'packages',
+    url: 'https://www.computan.com/packages',
+  },
+  {
+    name: 'resources',
+    url: 'https://www.computan.com/resources',
+    children: {
+      'hubspot learning centre': {
+        url: ''
+      },
+      'podcast': {
+        url: ''
+      },
+      'revops 500': {
+        url: ''
+      },
+      'integration': {
+        url: ''
+      }
+    }
+  },
+  {
+    name: 'blog',
+    url: ''
+  },
+  {
+    name: 'contact',
+    url: ''
+  },
+  {
+    name: 'careers',
+    url: ''
   }
 ]
 
