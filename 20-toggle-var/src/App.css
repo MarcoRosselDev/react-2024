@@ -27,3 +27,22 @@ li{
   display: flex;
   width: 50px;
 }
+
+.sub-ul{
+  position: relative;
+  width: 200px;
+  border: 1px solid blue;
+}
+
+.sub-ul ul{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  align-items: end;
+  border: 1px solid red;
+}
+
+.sub-ul li{
+  width: 50%;
+}
