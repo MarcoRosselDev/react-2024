@@ -11,11 +11,19 @@
 .header{
   display: flex;
   justify-content: center;
+  gap: 30px;
   align-items: center;
   border: 1px solid yellowgreen;
 }
 
 .header ul{
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  position: absolute;
+}
+
+li{
+  border: 1px solid yellow;
+  display: flex;
+  width: 50px;
 }
