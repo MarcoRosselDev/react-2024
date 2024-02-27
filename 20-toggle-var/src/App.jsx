@@ -4,17 +4,22 @@ import data from './data.js'
 function App() {
 
   function clickHandler(params) {
-    console.log(params.target.name);
+    console.log(params);
+    params.map()
   }
 
+  function overF(params) {
+
+  }
   const elems = data.map(item => {
 
-    item.children? console.log(`${item.name} tiene elementos hijos para mostrar: ${item.children}`) :null
+    const childrens = item.children? item.children.map(a => {
+      return a
+    }): null
 
     return (<li 
       key={item.name} 
-      onClick={clickHandler}
-
+      onClick={() => clickHandler(childrens)}
       >{item.name}</li>)
   })
 

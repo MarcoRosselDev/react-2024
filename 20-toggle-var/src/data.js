@@ -49,14 +49,16 @@ const data = [
   {
     name: 'about',
     url: 'https://www.computan.com/our-story',
-    children:{
-      'our story': {
-        url: 'https://www.computan.com/our-story'
+    children:[
+      { 
+        name: 'our story',
+        url: 'https://www.computan.com/our-story'  
       },
-      'our team': {
+      {
+        name: 'our team',
         url: 'https://www.computan.com/team'
       }
-    }
+    ]
   },
   {
     name: 'packages',
@@ -65,20 +67,24 @@ const data = [
   {
     name: 'resources',
     url: 'https://www.computan.com/resources',
-    children: {
-      'hubspot learning centre': {
+    children: [
+      {
+        name: 'hubspot learning centre',
         url: ''
       },
-      'podcast': {
+      {
+        name: 'podcast',
         url: ''
       },
-      'revops 500': {
+      {
+        name: 'revops 500',
         url: ''
       },
-      'integration': {
+      {
+        name: 'integration',
         url: ''
       }
-    }
+    ]
   },
   {
     name: 'blog',
