@@ -28,6 +28,10 @@ li{
   width: 50px;
 }
 
+li:hover{
+  background-color: purple;
+}
+
 .sub-ul{
   position: relative;
   width: 200px;
