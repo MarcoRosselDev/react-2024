@@ -7,14 +7,14 @@ function App() {
   const url = 'https://api.github.com/users'
   
   async function github_users() {
-    const data = await fetch(url, {
-      method: "GET"
-    })
-    return data.json()
+    const data = await fetch(url)
+    const new_data = await data.json()
+    setData(new_data)
   }
   useEffect(() => {
-    const fetch_data = github_users()
-    fetch_data.then(data => setData(data))
+/*     const fetch_data = github_users()
+    fetch_data.then(data => setData(data)) */
+    github_users()
   }, [])
 
   return (
