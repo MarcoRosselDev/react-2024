@@ -7,7 +7,8 @@ const Tours = ({data}) => {
     const {id, name, info, image, price} = item
 
     return (
-      <Tour 
+      <Tour
+      key={id}
       id={id} 
       name={name}
       info={info}

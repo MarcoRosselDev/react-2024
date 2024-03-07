@@ -1,0 +1,9 @@
+:root{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+:root div{
+  padding: 10px;
+  max-width: 900px;
+}
