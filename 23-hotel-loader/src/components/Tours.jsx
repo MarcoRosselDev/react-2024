@@ -1,11 +1,8 @@
 import Tour from "./Tour"
 
-const Tours = ({data}) => {
-
+const Tours = ({data, func}) => {
   const elems = data.map(item =>{
-
     const {id, name, info, image, price} = item
-
     return (
       <Tour
       key={id}
@@ -14,6 +11,7 @@ const Tours = ({data}) => {
       info={info}
       image={image}
       price={price}
+      func={func}
       />
     )
   })

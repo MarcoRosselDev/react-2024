@@ -16,7 +16,10 @@ function App() {
   }, [])
   return (
     <>
-      <Tours data={tours} />
+      <Tours 
+      data={tours}
+      func={setTours}
+      />
     </>
   )
 }
