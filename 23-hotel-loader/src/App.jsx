@@ -14,12 +14,19 @@ function App() {
   useEffect(() =>{
     fetchURL(url)
   }, [])
+
+  function cargar_denuevo() {
+    fetchURL(url)
+  }
+
+  const f = tours.length == 0 ? (<button onClick={cargar_denuevo}>cargar denuevo</button>) : (<Tours 
+    data={tours}
+    func={setTours}
+    />)
+
   return (
     <>
-      <Tours 
-      data={tours}
-      func={setTours}
-      />
+      {f}
     </>
   )
 }
