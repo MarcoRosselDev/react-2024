@@ -1,4 +1,9 @@
+import { useState } from "react"
+
 const Tour = (params) => {
+
+  const [readMore, setReadMore] = useState(false)
+
   const {id, name, info, image, price, func} = params
   
   function deleteOne(id) {
@@ -20,7 +25,10 @@ const Tour = (params) => {
     <div key={id}>
       <img src={image} alt='image of the tour' />
       <p>name: ${name}</p>
-      <p>${info}</p>
+      {/* <p>${info}</p> */}
+      {/* info.substring(0, 200)  === 200 caracteres a mostrar */}
+      <p>{readMore? info : info.substring(0, 200)}<button onClick={() => setReadMore(!readMore)}>{readMore? 'mostrar menos': 'mostrar mas'}</button> </p>
+      {/* en este boton agregar otros estilos para que se vea bien con el resto del texto */}
       <p>price ${price} $</p>
       <button onClick={() => deleteOne(id)}> no me interesa</button>
     </div>
