@@ -3,3 +3,27 @@ img{
   height: 200px;
   border-radius: 50%;
 }
+
+.contenedor{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-user{
+  width: 200px;
+}
+
+.btn-arrow{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: lightslategray;
+  color: white;
+}
+
+.btn-arrow:hover{
+  border: 1px solid red;
+}
