@@ -39,12 +39,15 @@ function App() {
   }, [])
   
   function mostrar(id) {
-    console.log(id);
-    const a = Number(id) -1
     setToggle(prev => {
-      return [...prev, {
-        prev[a].id == id? console.log('hi'): console.log(true)
-      }]
+      let ret = []
+      prev.map(item =>{
+        item.id == id? ret.push({
+          ...item,
+          mostrar : !item.mostrar
+        }): ret.push(item)
+      })
+      return ret
     })
   }
   console.log(toggle, 'mostrar');
