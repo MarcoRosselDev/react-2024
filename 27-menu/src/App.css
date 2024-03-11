@@ -13,6 +13,21 @@
   margin-top: 50px;
   gap: 30px;
 }
+.manu-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.contenedor{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .btns{
   display: flex;
@@ -31,4 +46,9 @@ button{
 button:hover{
   background-color: rgb(40, 40, 40);
   border: 1px solid lightskyblue;
+}
+
+img{
+  width: 100px;
+  height: 100px;
 }
