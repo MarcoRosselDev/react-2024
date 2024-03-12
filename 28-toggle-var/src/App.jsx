@@ -6,6 +6,7 @@ function App() {
   const url = 'https://course-api.com/react-tabs-project'
 
   const [info, setInfo] = useState([])
+  const [info_number, setInfo_number] = useState(0)
 
   async function fetch_data() {
     const data = await fetch(url)
@@ -17,8 +18,6 @@ function App() {
   useEffect(() =>{
     fetch_data()
   },[])
-
-  console.log(info);
   const elems = info.map(item =>{
 
     const lista = item.duties.map((a,index ) => (<li key={index}>{a}</li>))
@@ -38,10 +37,29 @@ function App() {
     )
   })
 
+  function cambiar(id_item) {
+    setInfo_number(id_item)
+  }
+
+  const selects = info.map((item, index) => {
+    return (
+      <div key={index} className={`select-item ${info_number == index? 'selected-item' : ''}`} onClick={() => cambiar(index)}>
+        <p>{item.title}</p>
+      </div>
+    )
+  })
+
   return (
     <>
-      {info.length === 0? (<p>cargando...</p>) : elems}
-      <p>Hi</p>
+      <div className='main'>
+        <div className='side-var'>
+          {info.length === 0? (<></>) : selects}
+        </div>
+        <div className='item-select'>
+          {info.length === 0? (<p>cargando...</p>) : elems[info_number]}
+        </div>
+
+      </div>
     </>
   )
 }
