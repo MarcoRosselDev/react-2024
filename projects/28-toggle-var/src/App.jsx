@@ -10,9 +10,10 @@ function App() {
 
   async function fetch_data() {
     const data = await fetch(url)
-    const json_data = data.json()
+    const json_data = await data.json()
     //setInfo(json_data)
-    json_data.then(data => setInfo(data))
+    setInfo(json_data)
+    //json_data.then(data => setInfo(data))
   }
 
   useEffect(() =>{
